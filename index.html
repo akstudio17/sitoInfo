@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmazione Java</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>AK PROGRAMMAZIONE JAVA</h1>
+</header>
+<nav>
+  <ul>
+    <li><a href="#array">Array</a></li>
+    <li><a href="#string">String</a></li>
+    <li><a href="#arraylist">ArrayList</a></li>
+    <li><a href="#localdate">LocalDate</a></li>
+    <li><a href="#localdatetime">LocalDateTime</a></li>
+    <li><a href="#collections">Collections</a></li>
+  </ul>
+</nav>
+<main>
+
+
+  <section id="array">
+    <h2>Array</h2>
+    <p>Un array in Java è una struttura di dati che può contenere un numero fisso di elementi dello stesso tipo.</p>
+    <img src="../img/assegnazioneArray.png" alt="Assegnazione variabili array">
+    <img src="../img/assegnazioneVeloceArray.png" alt="Assegnazione variabili array">
+    <img src="../img/length.png" alt="Dimensione array">
+    <p>Esempio di utilizzo:</p>
+    <pre><code>int[] numeri = {1, 2, 3, 4, 5};</code></pre>
+    <p>Esempio pratico:</p>
+    <pre><code>int[] numeri = {1, 2, 3, 4, 5};
+for (int i = 0; i < numeri.length; i++) {
+    System.out.println("Elemento all'indice " + i + ": " + numeri[i]);
+}</code></pre>
+  </section>
+
+  <section id="string">
+    <h2>String</h2>
+    <p>La classe <code>String</code> in Java rappresenta una sequenza di caratteri. È una classe immutabile, il che significa che una volta creata, il suo valore non può essere modificato.</p>
+    <p>Esempio di utilizzo:</p>
+    <pre><code>String saluto = "Ciao, mondo!";</code></pre>
+    <p>Esempio pratico:</p>
+    <pre><code>String frase = "Programmare in Java è divertente!";
+System.out.println("Lunghezza della frase: " + frase.length());
+System.out.println("Carattere all'indice 5: " + frase.charAt(5));
+System.out.println("Sottostringa (11, 15): " + frase.substring(11, 15));</code></pre>
+  </section>
+
+  <section id="arraylist">
+    <h2>ArrayList</h2>
+    <p>La classe <code>ArrayList</code> è una implementazione della lista dinamica in Java, che può crescere e diminuire di dimensioni automaticamente.</p>
+    <p>Esempio di utilizzo:</p>
+    <pre><code>ArrayList&lt;String&gt; lista = new ArrayList&lt;&gt;();
+lista.add("Elemento 1");
+lista.add("Elemento 2");</code></pre>
+    <p>Esempio pratico:</p>
+    <pre><code>ArrayList&lt;String&gt; frutti = new ArrayList&lt;&gt;();
+frutti.add("Mela");
+frutti.add("Banana");
+frutti.add("Arancia");
+
+System.out.println("Lista dei frutti: " + frutti);
+frutti.remove("Banana");
+System.out.println("Dopo aver rimosso Banana: " + frutti);
+System.out.println("Il primo frutto è: " + frutti.get(0));  //con il metodo get ottengo la variabile posta alla posizione messa nelle parentesi</code></pre>
+  </section>
+
+  <section id="localdate">
+    <h2>LocalDate</h2>
+    <p><code>LocalDate</code> è una classe di Java che rappresenta una data senza la componente di tempo. Fa parte del package <code>java.time</code>.</p>
+    <p>Esempio di utilizzo:</p>
+    <pre><code>LocalDate oggi = LocalDate.now();</code></pre>
+    <p>Esempio pratico:</p>
+    <pre><code>LocalDate oggi = LocalDate.now() //metodo che ritorna la data attuale;
+LocalDate dataNascita = LocalDate.of(1990, 5, 23);
+Period periodo = Period.between(dataNascita, oggi);
+
+System.out.println("Oggi è: " + oggi);
+System.out.println("Data di nascita: " + dataNascita);
+System.out.println("Età: " + periodo.getYears() + " anni");</code></pre>
+    <p>Altro esempio ma utilizzando il metodo plusDays:</p>
+    <img src="../img/localDate.png" alt="Esempio pratico LocalDate">
+  </section>
+
+  <section id="localdatetime">
+    <h2>LocalDateTime</h2>
+    <p><code>LocalDateTime</code> è una classe di Java che rappresenta una data con una componente di tempo, ma senza fuso orario. Fa parte del package <code>java.time</code>.</p>
+    <p>Esempio di utilizzo:</p>
+    <pre><code>LocalDateTime adesso = LocalDateTime.now();</code></pre>
+    <p>Esempio pratico:</p>
+    <pre><code>LocalDateTime adesso = LocalDateTime.now();
+LocalDateTime specifico = LocalDateTime.of(2024, 12, 25, 10, 30);
+
+System.out.println("Data e ora attuali: " + adesso);
+System.out.println("Data e ora specifiche: " + specifico);</code></pre>
+  </section>
+
+  <section id="collections">
+    <h2>Collections</h2>
+    <p>La classe <code>Collections</code> fornisce metodi statici per operare su o restituire collezioni. Include operazioni come ordinamento e ricerca.</p>
+    <p>Esempio di utilizzo:</p>
+    <pre><code>List&lt;String&gt; lista = new ArrayList&lt;&gt;();
+lista.add("C");
+lista.add("A");
+lista.add("B");
+Collections.sort(lista); // Ordina la lista in ordine crescente, è in grado di valutare in che modo ordinare: <br>
+                            se è String ordina per ordine alfabetico, se è int ordina per ordine di grandezza</code></pre>
+    <p>Esempio pratico:</p>
+    <pre><code>List&lt;String&gt; nomi = new ArrayList&lt;&gt;();
+nomi.add("Chiara");
+nomi.add("Alessio");
+nomi.add("Bianca");
+
+System.out.println("Lista originale: " + nomi);
+Collections.sort(nomi);
+System.out.println("Lista ordinata: " + nomi);
+
+Collections.reverse(nomi);
+System.out.println("Lista in ordine inverso: " + nomi);
+
+String nome = "Bianca";
+int posizione = Collections.binarySearch(nomi, nome);
+System.out.println("Posizione di " + nome + ": " + posizione);</code></pre>
+  </section>
+</main>
+<footer>
+  <p>PayPal for the support: <h1>AlessioKoj</h1></p>
+  <p>© 2024 AKstudio</p>
+  <p>contacts: akbusinnes17@gmail.com</p>
+
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
